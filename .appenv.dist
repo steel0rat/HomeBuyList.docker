@@ -1,0 +1,5 @@
+DATABASE_URL=pgsql://homebuylist@db:5432/homebuylist
+
+
+TELEGRAM_KEY=
+TELEGRAM_CHANNEL=

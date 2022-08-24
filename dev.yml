@@ -1,0 +1,5 @@
+version: '3.5'
+services:
+    api:
+        volumes:
+            - /var/www/projects/homebuylist:/var/www/homebuylist

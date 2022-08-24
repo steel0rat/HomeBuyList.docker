@@ -1,0 +1,26 @@
+version: '3.5'
+services:
+    api:
+        image: steel0rat/homebuylist:api
+        working_dir: /var/www/homebuylist
+        env_file: .appenv
+        restart: 'always'
+        depends_on:
+            - db
+
+    web:
+        image: steel0rat/homebuylist:web
+        ports:
+            - "8080:80"
+        environment:
+            - FASTCGI=api:9000
+        depends_on:
+            - api
+        restart: 'always'
+
+    db:
+            image: steel0rat/homebuylist:db
+            environment:
+                POSTGRES_HOST_AUTH_METHOD: trust
+            ports:
+                - "54000:5432"
